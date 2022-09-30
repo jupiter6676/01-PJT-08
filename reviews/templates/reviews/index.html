@@ -38,8 +38,9 @@
 <!-- JS -->
 <script>
   function goToDetail(post_pk) {
-    const url = "{% url 'reviews:detail' post_pk %}";
-    location.href = url;
+    // pk= 다음에 문자열은 안 되는 것 같다..
+    // https://stackoverflow.com/questions/17832194/get-javascript-variables-value-in-django-url-template-tag
+    location.href = "{% url 'reviews:detail' pk=0 %}".replace('0', post_pk);  // 왜 되지????
   }
 </script>
 {% endblock %}
