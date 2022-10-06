@@ -35,7 +35,9 @@ def detail(request, pk):
     post = Review.objects.get(id=pk)
 
     context = {
-        'post': post,
+        'id': post.pk,
+        'title': post.title,
+        'content': post.content,
     }
 
     return render(request, 'reviews/detail.html', context)
